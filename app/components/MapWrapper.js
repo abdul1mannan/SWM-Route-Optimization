@@ -7,7 +7,7 @@ const Map = dynamic(() => import('./Map'), {
   loading: () => <div className="h-[600px] w-full bg-gray-200 animate-pulse" />
 });
 
-const MapWrapper = ({ dustbins, onToggleStatus, onDustbinAdd, onDustbinRemove, route, garageLocation, disposalSite, onGarageLocationSet, onDisposalSiteSet }) => {
+const MapWrapper = ({ dustbins, onToggleStatus, onDustbinAdd, onDustbinRemove, route, alternativeRoute, garageLocation, disposalSite, onGarageLocationSet, onDisposalSiteSet }) => {
   return (
     <Map
       dustbins={dustbins}
@@ -15,6 +15,7 @@ const MapWrapper = ({ dustbins, onToggleStatus, onDustbinAdd, onDustbinRemove, r
       onDustbinAdd={onDustbinAdd}
       onDustbinRemove={onDustbinRemove}
       route={route}
+      alternativeRoute={alternativeRoute}
       garageLocation={garageLocation}
       disposalSite={disposalSite}
       onGarageLocationSet={onGarageLocationSet}

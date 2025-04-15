@@ -86,6 +86,7 @@ const Map = ({
   onDustbinAdd,
   onDustbinRemove,
   route = [],
+  alternativeRoute = [],
   garageLocation,
   disposalSite,
   onGarageLocationSet,
@@ -278,10 +279,19 @@ const Map = ({
           </Marker>
         )}
 
-        {routeCoordinates.length > 0 && (
+        {route.length > 0 && (
           <Polyline
-            positions={routeCoordinates}
+            positions={route.map(point => [point.lat, point.lng])}
             color="#3388ff"
+            weight={4}
+            opacity={0.7}
+          />
+        )}
+
+        {alternativeRoute.length > 0 && (
+          <Polyline
+            positions={alternativeRoute.map(point => [point.lat, point.lng])}
+            color="#ff3333"
             weight={4}
             opacity={0.7}
           />

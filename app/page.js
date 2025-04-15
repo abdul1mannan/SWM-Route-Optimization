@@ -13,6 +13,7 @@ const MapWrapper = dynamic(() => import('./components/MapWrapper'), {
 export default function Home() {
   const [dustbins, setDustbins] = useState([]);
   const [route, setRoute] = useState([]);
+  const [alternativeRoute, setAlternativeRoute] = useState([]);
   const [garageLocation, setGarageLocation] = useState(null);
   const [disposalSite, setDisposalSite] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -53,10 +54,9 @@ export default function Home() {
     setRoute([]);
   };
 
-  const handleRouteCalculated = (newRoute, garage, disposal) => {
- 
-    
+  const handleRouteCalculated = (newRoute, newAlternativeRoute, garage, disposal) => {
     setRoute(newRoute);
+    setAlternativeRoute(newAlternativeRoute);
     if (garage) setGarageLocation(garage);
     if (disposal) setDisposalSite(disposal);
   };
@@ -82,6 +82,7 @@ export default function Home() {
                 onDustbinAdd={handleDustbinAdd}
                 onDustbinRemove={handleDustbinRemove}
                 route={route}
+                alternativeRoute={alternativeRoute}
                 garageLocation={garageLocation}
                 disposalSite={disposalSite}
                 onGarageLocationSet={handleGarageLocationSet}
